@@ -105,8 +105,12 @@ if __name__ == "__main__":
 
         # 예약에 성공하면 성공 알림 전송 후 종료
         if success:
-            log_with_timestamp(f"Reservation successful on attempt {attempt + 1}.")
-            send_slack_notification(f"Reservation successful on attempt {attempt + 1}.")
+            log_with_timestamp(
+                f"Reservation successful on attempt {attempt + 1}. {message}"
+            )
+            send_slack_notification(
+                f":tada: Reservation successful on attempt {attempt + 1}. {message}"
+            )
             break
 
         # 다음 노선으로 순환
